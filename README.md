@@ -11,6 +11,7 @@ php path/to/script -r path/to/folder DimensionNumber EPSGref
 ```
 
 The GML base file will be modified with the new srsName node.
+
 An output file will be created on the "rewrited" folder.
 
 
@@ -27,4 +28,5 @@ php chemin/vers/script -r chemin/vers/fichier.gml NombreDimensions ReferentielEP
 ```
 
 Un fichier GML de base sera transformé avec la bonne node srsName.
+
 Un fichier de sortie sera créer dans le dossier "rewrited."

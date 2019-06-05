@@ -2,18 +2,29 @@
 
 ### One File
 ```
-~ (CLI command must be done in the php script folder)
 php path/to/script path/to/file.gml DimensionNumber EPSGref
-php rewrite_srs.php /home/gemma/Téléchargements/Gare_NIMES/gml/test/test.gml 3 3943
 ```
 
 ### One Folder -> Recursive
-
 ```
-~ (CLI command must be done in the php script folder)
 php path/to/script -r path/to/folder DimensionNumber EPSGref
-php rewrite_srs.php -r /home/gemma/Téléchargements/Gare_NIMES/gml/ 3 3943
+```
+
+The GML base file will be modified with the new srsName node.
+An output file will be created on the "rewrited" folder.
+
+
+## Réécriture de SRS dans des fichiers GML
+
+### 1 Fichier
+```
+php chemin/vers/script chemin/vers/fichier.gml NombreDimensions ReferentielEPSG
+```
+
+### 1 Dossier -> Récursif
+```
+php chemin/vers/script -r chemin/vers/fichier.gml NombreDimensions ReferentielEPSG
 ```
 
 Un fichier GML de base sera transformé avec la bonne node srsName.
-Un nouveau fichier sera créer dans le dossier "rewrited"
+Un fichier de sortie sera créer dans le dossier "rewrited."

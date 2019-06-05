@@ -2,12 +2,12 @@
 
 ### One File
 ```
-php path/to/script path/to/file.gml DimensionNumber EPSGref
+php path/to/script path/to/file.gml DimensionNumber EPSGReferential
 ```
 
 ### One Folder -> Recursive
 ```
-php path/to/script -r path/to/folder DimensionNumber EPSGref
+php path/to/script -r path/to/folder DimensionNumber EPSGReferential
 ```
 
 The GML base file will be modified with the new srsName node.

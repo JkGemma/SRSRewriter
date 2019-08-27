@@ -6,36 +6,7 @@ class SRSReader {
     fwrite(STDOUT, implode(" ", $args) . "\n");
     return;
   }
-
-  // public static function my_option($opts){
-  //       if(is_dir($opts["folder"])){
-  //           if(isset($opts["r"]) || isset($opts["recursive"])){
-  //               self::my_recursive($opts["folder"], $size);
-  //           }
-  //           else{
-  //               $size = array();
-  //               foreach(glob($opts["folder"]."/"."*.png") as $val){
-  //                   $size[] = $val;
-  //               }
-  //           }
-  //           $infopen = finfo_open(FILEINFO_MIME_TYPE);
-  //           foreach($size as $val){
-  //               if(finfo_file($infopen, $val) == "image/png"){
-  //                   $list[] = $val;
-  //               }
-  //           }
-  //           finfo_close($infopen);
-  //           self::my_imsize($opts, $list);
-  //       }
-  //       elseif($opts["folder"] == "css_generator.php"){
-  //           echo "Ceci n'est pas un dossier. Si vous avez besoin d'aide, merci d'utiliser la commande  --help\n";
-  //       }
-  //       else{
-  //           echo "Ceci n'est pas un dossier valide. Si vous avez besoin d'aide, merci d'utiliser la commande --help\n";
-  //       }
-  //   }
-
-
+  // C GEN
 
   public static function doThis($opts) {
     var_dump($opts);

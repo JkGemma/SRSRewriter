@@ -2,17 +2,21 @@
 
 // --------------------------
 // Flayac Quentin22/11/18
-// PHP Hand-Written Script to Transform GML SRS
+// PHP Homemade Script to Transform GML SRS
 // --------------------------
 
 function main($argv) {
   if(isset($argv)) {
     // recursive folder
     if($argv[1] === "-r") {
+      logger("\nStarting Recursive Rewrite...");
       recursiveRewrite($argv);
+      logger("Done.");
     }
     else {
+      logger("\nStarting...");
       baseRewrite($argv);
+      logger("Done.");
     }
   }
 }
@@ -21,7 +25,6 @@ function logger($str) {
   return;
 }
 function recursiveRewrite($argv) {
-  logger("\nStarting Recursive Rewrite...");
   // basefolder -> filename (//countable)
   $folder = scandir($argv[2]);
   // 587
@@ -44,11 +47,9 @@ function recursiveRewrite($argv) {
       file_put_contents(__DIR__."/rewrited/rewrited_".$filename[count($filename) - 1], implode("\n", $array));
     }
   }
-  logger("Done.");
   return;
 }
 function baseRewrite($argv) {
-  logger("\nStarting...");
   // basefile content in an array, exploded with \n
   $array = explode("\n", file_get_contents($argv[1]));
   // basefile name
@@ -62,7 +63,6 @@ function baseRewrite($argv) {
   // create a new File with modification
   logger("File saved at: " . __DIR__."/rewrited/rewrited_".$filename[count($filename) - 1]);
   file_put_contents(__DIR__."/rewrited/rewrited_".$filename[count($filename) - 1], implode("\n", $array));
-  logger("Done.");
   return;
 }
 

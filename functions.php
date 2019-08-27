@@ -12,6 +12,9 @@ function main($argv) {
       recursiveRewrite($argv);
       logger("Done.");
     }
+    elseif($argv[1] === ("-c" || "--check")) {
+      logger("LOL");
+    }
     else {
       logger("\nStarting...");
       baseRewrite($argv);
@@ -19,8 +22,9 @@ function main($argv) {
     }
   }
 }
-function logger($str) {
-  echo $str . "\n";
+function logger() {
+  $args = func_get_args();
+  fwrite(STDOUT, implode(" ", $args) . "\n");
   return;
 }
 function recursiveRewrite($argv) {
@@ -63,6 +67,9 @@ function baseRewrite($argv) {
   logger("File saved at: " . __DIR__."/rewrited/rewrited_".$filename[count($filename) - 1]);
   file_put_contents(__DIR__."/rewrited/rewrited_".$filename[count($filename) - 1], implode("\n", $array));
   return;
+}
+function checkSRS($argv) {
+
 }
 
 

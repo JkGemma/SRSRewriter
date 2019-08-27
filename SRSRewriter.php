@@ -1,9 +1,8 @@
 <?php
 
-// --------------------------
-// Flayac Quentin22/11/18
+// Flayac Quentin
+// 22/11/18 v1 | 27/08/19 v1.1
 // PHP Homemade Script to Transform GML SRS
-// --------------------------
 
 function main($argv) {
   if(isset($argv)) {

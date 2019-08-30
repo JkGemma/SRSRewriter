@@ -1,36 +1,38 @@
-# NEED TO UPDATE
+# SRSRewriter
+
+### Description
+A simple PHP tool in order to add the property 'srsName' to cityGML
+files node. Since the v2 he is able to check all node who contain
+'srsDimension' and display them.
+### Version
+v2 - 30/08/19
 
 
+## Usage
 
-## Rewrite SRS in GML Files
+### -f, --file
+Look into the cityGML files passed as arguement.
+### -d, --directory
+Look for cityGML files into the directory passed as arguement.
 
-### One File
+/!\ It doesn't watch in subdirectories /!\
+### -s, --srs = STRING with INTEGER srsName
+Add the srsName on each node with srsDimension="3"
+### -c, --check
+/!\ Only with single file /!\
+
+Check all gml node who contain srsDimension="3".
+
+## Example
 ```
-php path/to/script path/to/file.gml DimensionNumber EPSGReferential
+php main.php -f -s=3946 /home/CityGMLFolder/citygml.gml
+php main.php -file -s=3946 /home/CityGMLFolder/citygml.gml
+
+php main.php -d -s=3946 /home/CityGMLFolder/
+php main.php -directory -s=3946 /home/CityGMLFolder/
+
+php main.php -c /home/CityGMLFolder/citygml.gml
 ```
 
-### One Folder -> Recursive
-```
-php path/to/script -r path/to/folder DimensionNumber EPSGReferential
-```
-
-The GML base file will be modified with the new srsName node.
-
-An output file will be created on the "rewrited" folder.
-
-
-## Réécriture de SRS dans des fichiers GML
-
-### 1 Fichier
-```
-php chemin/vers/script chemin/vers/fichier.gml NombreDimensions ReferentielEPSG
-```
-
-### 1 Dossier -> Récursif
-```
-php chemin/vers/script -r chemin/vers/fichier.gml NombreDimensions ReferentielEPSG
-```
-
-Un fichier GML de base sera transformé avec la bonne node srsName.
-
-Un fichier de sortie sera créer dans le dossier "rewrited."
+## Maintainer
+Flayac Quentin - quentin.flayac@epitech.eu

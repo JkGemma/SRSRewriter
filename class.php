@@ -10,9 +10,8 @@ class SRSReader {
     fwrite(STDOUT, implode(" ", $args) . "\n");
     return;
   }
-  
   public static function doThis($opts) {
-    if((isset($opts["F"]) || isset($opts["Folder"])) && $opts["FoF"][0] === 'folder') {
+    if((isset($opts["d"]) || isset($opts["directory"])) && $opts["FoF"][0] === 'folder') {
       self::logger("\nStarting folderRewrite...");
       self::folderRewrite($opts);
       self::logger("Done");
@@ -41,7 +40,7 @@ class SRSReader {
             SRSRewriter [OPTIONS]... FILE/FOLDER
     \nEXAMPLE
             php main.php -h
-            php main.php -F -s=3946 /home/CityGMLFolder/
+            php main.php -d -s=3946 /home/CityGMLFolder/
             php main.php -f -s=3946 /home/CityGMLFolder/citygml.gml
             php main.php -c /home/CityGMLFolder/citygml.gml
 
@@ -52,17 +51,17 @@ class SRSReader {
 
             -f, --file
                 Look into the cityGML files passed as arguement.
-            -F, --Folder
-                Look for cityGML files into the folder passed as arguement.
+            -d, --directory
+                Look for cityGML files into the directory passed as arguement.
                 /!\ It doesn't watch in subdirectories /!\
             -s, --srs = STRING with INTEGER srsName
                 Add the srsName on each node with srsDimension=\"3\"
             -c, --check /!\ Only with single file /!\
-                Check all gml:envelope node of the file.
+                Check all gml node who contain srsDimension=\"3\".
 
     \nBONUS COMMANDS
             -h, --help=HELP
-            Open the Manual.\n\n";
+                Open the Manual.\n\n";
   }
   public function folderRewrite($opts) {
     // basefolder -> filename (//countable)
@@ -76,7 +75,7 @@ class SRSReader {
         $array = explode("\n", file_get_contents($opts["FoF"][1]."/".$files[$i]));
         // basefile name
         $filename = explode("/", $files[$i]);
-        $content = isset($opts['F']) ? $test = $opts['F'] : $test = $opts['Folder'];
+        $content = isset($opts['d']) ? $test = $opts['d'] : $test = $opts['directory'];
         for($y = 0; $y < count($array); $y++) {
           $srsReplace = "srsDimension=\"3\"";
           $srsUpdate = "srsName=\"EPSG:".$content."\" srsDimension=\"3\"";

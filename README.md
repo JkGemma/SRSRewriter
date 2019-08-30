@@ -16,7 +16,7 @@ Look into the cityGML files passed as arguement.
 Look for cityGML files into the directory passed as arguement.
 
 /!\ It doesn't watch in subdirectories /!\
-### -s, --srs = STRING with INTEGER srsName
+### -s, --srs = arg
 Add the srsName on each node with srsDimension="3"
 ### -c, --check
 /!\ Only with single file /!\

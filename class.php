@@ -75,7 +75,7 @@ class SRSReader {
         $array = explode("\n", file_get_contents($opts["FoF"][1]."/".$files[$i]));
         // basefile name
         $filename = explode("/", $files[$i]);
-        $content = isset($opts['d']) ? $test = $opts['d'] : $test = $opts['directory'];
+        $srs = isset($opts['s']) ? $srs = $opts['s'] : $srs = $opts['srs'];
         for($y = 0; $y < count($array); $y++) {
           $srsReplace = "srsDimension=\"3\"";
           $srsUpdate = "srsName=\"EPSG:".$content."\" srsDimension=\"3\"";
@@ -93,10 +93,10 @@ class SRSReader {
     $array = explode("\n", file_get_contents($opts["FoF"][1]));
     // basefile name
     $filename = explode("/", $opts["FoF"][1]);
-    $content = isset($opts['f']) ? $test = $opts['f'] : $test = $opts['file'];
+    $srs = isset($opts['s']) ? $srs = $opts['s'] : $srs = $opts['srs'];
     for($i = 0; $i < count($array); $i++) {
       $srsReplace = "srsDimension=\"3\"";
-      $srsUpdate = "srsName=\"EPSG:".$content."\" srsDimension=\"3\"";
+      $srsUpdate = "srsName=\"EPSG:".$srs."\" srsDimension=\"3\"";
       $array[$i] = str_replace($srsReplace, $srsUpdate, $array[$i]);
     }
     // create a new File with modification

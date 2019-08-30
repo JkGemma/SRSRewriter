@@ -5,8 +5,8 @@
 // PHP Homemade Script to Transform GML SRS
 
 include('class.php');
-$shortopt = "f::F::s:ch";
-$longopt = ["file::", "Folder::", "srs:", "check", "help"];
+$shortopt = "f::d::s:ch";
+$longopt = ["file::", "directory::", "srs:", "check", "help"];
 $opts = getopt($shortopt, $longopt);
 $end = array_pop($argv);
 $opts["FoF"] = isFileorFolder($end);

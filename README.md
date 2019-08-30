@@ -14,13 +14,11 @@ v2 - 30/08/19
 Look into the cityGML files passed as arguement.
 ### -d, --directory
 Look for cityGML files into the directory passed as arguement.
-
 /!\ It doesn't watch in subdirectories /!\
-### -s, --srs = arg
+### -s, --srs *srsName*
 Add the srsName on each node with srsDimension="3"
 ### -c, --check
 /!\ Only with single file /!\
-
 Check all gml node who contain srsDimension="3".
 
 ## Example
